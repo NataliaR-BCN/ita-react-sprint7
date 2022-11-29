@@ -1,7 +1,11 @@
-import React from 'react';
+import Router from "./application/routes";
 
-function App() {
-  return (
+
+function App() {  
+
+  return (   
+
+    <Router />
 
   );
 }
