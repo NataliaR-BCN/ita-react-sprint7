@@ -10,22 +10,25 @@ import { Columnes, ColEsquerra, ColDreta } from "../styled";
 
 function Home() {
 
-  const query = new URLSearchParams(useLocation().search);
+  const params = new Proxy(new URLSearchParams(useLocation().search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+
 
   const [projectData, setProjectData] = useState([ 
-    { projectName: query.get('nomProjecte') || "" },
-    { clientName: query.get('nomClient') || "" }
+    { projectName: params.nomProjecte || "" },
+    { clientName: params.nomClient || "" }
   ]);
 
   const [servicesSelected, setServicesSelected] = useLocalStorage('services', [ 
-    { webPage: query.get('paginaWeb' === 'true') || false },
-    { seoConsulting: query.get('consultoriaSeo' === 'true') || false },
-    { googleAdsCampaign: query.get('campanyaGoogleAds' === 'true') || false }
+    { webPage: params.paginaWeb === 'true' ? true : false || false },
+    { seoConsulting: params.consultoriaSeo === 'true' ? true : false || false },
+    { googleAdsCampaign: params.campanyaGoogleAds === 'true' ? true : false || false }
   ]);
 
-  const [webPageNumbers, setWebPageNumbers] = useLocalStorage('numPages', { numPages: query.get('numeroPagines') || 1 });
+  const [webPageNumbers, setWebPageNumbers] = useLocalStorage('numPages', { numPages: params.numeroPagines || 1 });
 
-  const [webPageLangs, setWebPageLangs] =  useLocalStorage('numLangs', { numLangs: query.get('numeroIdiomes') || 1 });
+  const [webPageLangs, setWebPageLangs] =  useLocalStorage('numLangs', { numLangs: params.numeroIdiomes || 1 });
 
   const [totalWebPrice, setTotalWebPrice] = useState(530);
   
