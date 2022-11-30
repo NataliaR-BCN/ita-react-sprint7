@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/static/js/main.e05f6f82.js",
+    "static/media/pexels-luna-lovegood-4087177.jpg": "/static/media/pexels-luna-lovegood-4087177.af056183a99394f123e3.jpg",
+    "index.html": "/index.html",
+    "main.e05f6f82.js.map": "/static/js/main.e05f6f82.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.e05f6f82.js"
+  ]
+}
